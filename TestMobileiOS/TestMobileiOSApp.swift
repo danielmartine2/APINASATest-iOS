@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import Swinject
 
 @main
 struct TestMobileiOSApp: App {
+    
+    let loginViewModel: ApolloViewModel
+    
+    init() {
+        loginViewModel = Assembler.sharedAssembly.resolver.resolve(ApolloViewModel.self)!
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ApolloView().environmentObject(loginViewModel)
         }
+        
     }
 }
