@@ -14,7 +14,8 @@ extension Assembler {
         
         let container = Container()
         let assembler = Assembler([
-            ApolloAssembly()
+            ApolloAssembly(),
+            ApolloDetailAssembly()
         ],container: container)
         
         return assembler

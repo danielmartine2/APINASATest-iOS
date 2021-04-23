@@ -8,7 +8,7 @@
 import Foundation
 
 class ApolloDetailViewModel: ObservableObject {
-    
+
     func getUrlImage(_ links: [linkImage]?) -> String{
         guard let links = links else {
             return ""
@@ -17,4 +17,5 @@ class ApolloDetailViewModel: ObservableObject {
         let urlString = imageData[0].href.replacingOccurrences(of: " ", with: "%20")
         return urlString
     }
+    
 }

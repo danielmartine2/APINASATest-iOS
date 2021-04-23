@@ -12,16 +12,17 @@ struct ApolloMapper: Codable {
 }
 
 struct Collection: Codable{
-    let items: [ItemCollection]
+    var items: [ItemCollection]
 }
 
 struct ItemCollection: Codable, Identifiable {
-    var id = UUID()
+    var id: String? = UUID().uuidString
     let data: [ApolloData]
     let links: [linkImage]?
+    var favourite: Bool? = false
     
     enum CodingKeys: String, CodingKey {
-        case data, links
+        case data, links, favourite
     }
 }
 

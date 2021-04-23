@@ -26,7 +26,7 @@ class ApolloViewModel: ObservableObject {
             switch result {
                 
             case .success(let apolloData):
-                self.apolloData = apolloData.items
+                self.apolloData = apolloData
                 
             case .failure(.unknown):
                 print("sin internet")
@@ -46,5 +46,9 @@ class ApolloViewModel: ObservableObject {
         return false
     }
     
+    func saveIsFavourite(item: ItemCollection, arrayData: [ItemCollection]) {
+        self.apolloData = apolloUseCase.saveIsFavourite(item: item, arrayData: arrayData)
+        
+    }
     
 }

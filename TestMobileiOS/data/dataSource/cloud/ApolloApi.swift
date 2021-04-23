@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol ApolloApiProtocol {
-    func requestApollo() -> AnyPublisher<Result<Collection, NetworkError>, Never>
+    func requestApollo() -> AnyPublisher<Result<[ItemCollection], NetworkError>, Never>
     func makeResource() -> URLRequest
 }
 
@@ -23,9 +23,9 @@ class ApolloApi: ApolloApiProtocol {
         self.url = url
     }
     
-    func requestApollo() -> AnyPublisher<Result<Collection, NetworkError>, Never> {
+    func requestApollo() -> AnyPublisher<Result<[ItemCollection], NetworkError>, Never> {
         
-        return client.run(makeResource()).map { data, response -> Result<Collection, NetworkError> in
+        return client.run(makeResource()).map { data, response -> Result<[ItemCollection], NetworkError> in
             
             guard let response = response as? HTTPURLResponse else {
                 return .failure(.jsonDecodingError)
@@ -43,7 +43,7 @@ class ApolloApi: ApolloApiProtocol {
                     return .failure(.jsonDecodingError)
                 }
                 
-                return .success(apolloData.collection)
+                return .success(apolloData.collection.items)
                 
             case 401: return .failure(.unAuthorized)
                 
@@ -54,7 +54,7 @@ class ApolloApi: ApolloApiProtocol {
                 return .failure(NetworkError.invalidResponse)
             }
         }
-        .catch { error -> AnyPublisher<Result<Collection, NetworkError>, Never> in
+        .catch { error -> AnyPublisher<Result<[ItemCollection], NetworkError>, Never> in
             return .just(.failure(NetworkError.unknown))
         }
         .eraseToAnyPublisher()

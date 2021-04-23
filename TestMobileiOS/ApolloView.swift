@@ -12,50 +12,54 @@ struct ApolloView: View {
     
     @EnvironmentObject private var apolloViewModel: ApolloViewModel
     
+    @Environment(\.scenePhase) var scenePhase
+    
     @State private var searchText: String = ""
+
+    @State private var isFavorite: Bool = false
     
     var body: some View {
-            
+        
         NavigationView {
             
             ZStack{
                 
-                Rectangle()
-                    .foregroundColor(Color(red: 200/255, green: 143/255, blue: 32/255))
-                    .edgesIgnoringSafeArea(.all)
-                
-                Rectangle()
-                    .foregroundColor(Color(red: 228/255, green: 195/255, blue: 76/255))
-                    .rotationEffect(Angle(degrees: 45))
-                    .edgesIgnoringSafeArea(.all)
-
                 
                 VStack {
                     
                     SearchBarView(text: $searchText).padding()
                     
-                    List{
-                    ForEach(self.apolloViewModel.apolloData.filter({ searchText.isEmpty ? true : self.apolloViewModel.filterByKeywords(item: $0, searchText: searchText) })){ item in
-                        
-                        NavigationLink(destination: ApolloDetailView(itemData: item)){
-                            ItemApolloView(itemData: item)
+                    ScrollView{
+                        ForEach(self.apolloViewModel.apolloData.filter({ searchText.isEmpty ? true : self.apolloViewModel.filterByKeywords(item: $0, searchText: searchText) }), id: \.id){ item in
+                            
+                            
+                                ItemApolloView(itemData: item, actionFavourite: {
+                                    self.apolloViewModel.saveIsFavourite(item: item, arrayData: self.apolloViewModel.apolloData)
+                                })
+                          
                         }
-                        
-                    }
-                    }.onAppear{
-                        self.apolloViewModel.getApollo()
                     }
                     
                 }
                 
-                .navigationBarTitle("NASA Api")
             }
-        }.environmentObject(ApolloDetailViewModel())
+            
+            .navigationBarTitle("NASA Api", displayMode: .inline)
+            .buttonStyle(PlainButtonStyle())
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear{
+            self.apolloViewModel.getApollo()
+        }
+        
+        .environmentObject(ApolloDetailViewModel()
+        )
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        
         ApolloView().environmentObject(Assembler.sharedAssembly.resolver.resolve(ApolloViewModel.self)!)
     }
 }

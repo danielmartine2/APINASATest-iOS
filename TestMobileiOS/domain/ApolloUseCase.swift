@@ -9,7 +9,8 @@ import Foundation
 import Combine
 
 protocol ApolloUseCaseProtocol {
-    func getApollo() -> AnyPublisher<Result<Collection, NetworkError>,Never>
+    func getApollo() -> AnyPublisher<Result< [ItemCollection], NetworkError>,Never>
+    func saveIsFavourite(item: ItemCollection, arrayData: [ItemCollection]) -> [ItemCollection]
 }
 
 class ApolloUseCase: ApolloUseCaseProtocol {
@@ -21,20 +22,24 @@ class ApolloUseCase: ApolloUseCaseProtocol {
     }
     
     
-    func getApollo() -> AnyPublisher<Result<Collection, NetworkError>, Never> {
+    func getApollo() -> AnyPublisher<Result<[ItemCollection], NetworkError>, Never> {
         return apolloRepository.getApollo().map({result in
-        
-                switch result {
-                    
-                case .success(let apollo): return .success(apollo)
-                    
-                case .failure(let message): return .failure(message)
-                    
-                }
-        
-            })
             
-            .eraseToAnyPublisher()
+            switch result {
+            
+            case .success(let apollo): return .success(apollo)
+                
+            case .failure(let message): return .failure(message)
+                
+            }
+            
+        })
+        .receive(on: RunLoop.main)
+        .eraseToAnyPublisher()
+    }
+    
+    func saveIsFavourite(item: ItemCollection, arrayData: [ItemCollection]) -> [ItemCollection]{
+        return apolloRepository.saveIsFavourite(item: item, arrayData: arrayData)
     }
     
     

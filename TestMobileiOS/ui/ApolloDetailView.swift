@@ -12,11 +12,17 @@ struct ApolloDetailView: View {
     
     @EnvironmentObject private var apolloDetailViewModel: ApolloDetailViewModel
     
+    @State private var isDisableButton: Bool = false
+
     var itemData: ItemCollection
+    
+    let actionButton: () -> Void
     
     var body: some View {
         ZStack {
-            VStack{
+            VStack(alignment: .leading){
+                
+                Spacer()
                 
                 Text(itemData.data[0].title)
                 
@@ -33,24 +39,26 @@ struct ApolloDetailView: View {
                     .scaledToFit()
                     .frame(maxWidth: .infinity, alignment: .center)
                 
+                Spacer()
+                
                 HStack{
                     Spacer()
-                    Button(action: {
-                        print("Delete tapped!")
-                    }) {
+                    Button(action: actionButton) {
                         HStack {
-                            Image(systemName: "star")
+                            Image(systemName: itemData.favourite ?? false  ? "star.fill" : "star")
                                 .font(.title)
+                                .foregroundColor(itemData.favourite ?? false ? .yellow : .white)
                             Text("Favorito")
-                                .fontWeight(.semibold)
+                                .fontWeight(.regular)
                                 .font(.title)
-                        }
+                                .foregroundColor(.white)
+                        }.disabled(self.isDisableButton)
                         .padding()
-                        .foregroundColor(.white)
-                        .background(LinearGradient(gradient: Gradient(colors: [Color.gray, Color.blue]), startPoint: .leading, endPoint: .trailing))
-                        .cornerRadius(40)
+                       
                     }
-                }
+                    Spacer()
+                }.background(Color.black.opacity(0.8))
+                .edgesIgnoringSafeArea(.bottom)
             }
         }
     }
@@ -59,6 +67,6 @@ struct ApolloDetailView: View {
 struct ApolloDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let itemData = getDataApollo()[0]
-        ApolloDetailView(itemData: itemData)
+        ApolloDetailView(itemData: itemData, actionButton: {})
     }
 }
