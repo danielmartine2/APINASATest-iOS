@@ -12,6 +12,9 @@ class ApolloViewModel: ObservableObject {
     
     @Published var apolloData: [ItemCollection] = [].self
     
+    @Published var isLoading = true
+    @Published var withoutNetwork  = false
+    
     let apolloUseCase: ApolloUseCaseProtocol
     
     var cancellable: AnyCancellable? = nil
@@ -21,17 +24,20 @@ class ApolloViewModel: ObservableObject {
     }
     
     func getApollo() {
+        self.isLoading = true
         cancellable?.cancel()
         cancellable = apolloUseCase.getApollo().sink{ (result) in
+            self.isLoading = false
             switch result {
                 
             case .success(let apolloData):
+                self.withoutNetwork = false
                 self.apolloData = apolloData
                 
             case .failure(.unknown):
-                print("sin internet")
+                self.withoutNetwork = true
                 
-            default: print("")
+            default: self.withoutNetwork = false
                 
             }
 

@@ -10,6 +10,14 @@
 		1D8BC42729603E003EF12872 /* Pods_TestMobileiOS_TestMobileiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2A42CA84187473959E5CD8 /* Pods_TestMobileiOS_TestMobileiOSUITests.framework */; };
 		679522CDFEFEE82EAB9F7FCE /* Pods_TestMobileiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC201EEAD6C4CBFCB5A6BCD /* Pods_TestMobileiOS.framework */; };
 		8F34D693E96627067DE3418A /* Pods_TestMobileiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A1F2662736BF8A1FA462DB /* Pods_TestMobileiOSTests.framework */; };
+		A600F6942633C78E005186E7 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A600F6902633C78E005186E7 /* Nunito-Regular.ttf */; };
+		A600F6952633C78E005186E7 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A600F6912633C78E005186E7 /* Nunito-SemiBold.ttf */; };
+		A600F6962633C78E005186E7 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A600F6922633C78E005186E7 /* Nunito-Bold.ttf */; };
+		A600F6AC2633E148005186E7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A600F6AB2633E148005186E7 /* LoadingView.swift */; };
+		A600F6CA26346B24005186E7 /* ApolloViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A600F6C926346B24005186E7 /* ApolloViewModelTest.swift */; };
+		A600F6D326346D35005186E7 /* ApolloUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A600F6D226346D35005186E7 /* ApolloUseCaseMock.swift */; };
+		A600F6F426347E44005186E7 /* UtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A600F6F326347E44005186E7 /* UtilTest.swift */; };
+		A600F6FC26348CEF005186E7 /* WithoutInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A600F6FB26348CEF005186E7 /* WithoutInternet.swift */; };
 		A60FC025262F6CEB0015A34F /* TestMobileiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60FC024262F6CEB0015A34F /* TestMobileiOSApp.swift */; };
 		A60FC027262F6CEB0015A34F /* ApolloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60FC026262F6CEB0015A34F /* ApolloView.swift */; };
 		A60FC029262F6CEE0015A34F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60FC028262F6CEE0015A34F /* Assets.xcassets */; };
@@ -59,6 +67,14 @@
 		55CD38021981C733BE323CC0 /* Pods-TestMobileiOS-TestMobileiOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestMobileiOS-TestMobileiOSUITests.release.xcconfig"; path = "Target Support Files/Pods-TestMobileiOS-TestMobileiOSUITests/Pods-TestMobileiOS-TestMobileiOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6C11D43D12FCF01C2D1F1EE7 /* Pods-TestMobileiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestMobileiOSTests.release.xcconfig"; path = "Target Support Files/Pods-TestMobileiOSTests/Pods-TestMobileiOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		7E2A42CA84187473959E5CD8 /* Pods_TestMobileiOS_TestMobileiOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestMobileiOS_TestMobileiOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A600F6902633C78E005186E7 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		A600F6912633C78E005186E7 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
+		A600F6922633C78E005186E7 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		A600F6AB2633E148005186E7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		A600F6C926346B24005186E7 /* ApolloViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloViewModelTest.swift; sourceTree = "<group>"; };
+		A600F6D226346D35005186E7 /* ApolloUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloUseCaseMock.swift; sourceTree = "<group>"; };
+		A600F6F326347E44005186E7 /* UtilTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilTest.swift; sourceTree = "<group>"; };
+		A600F6FB26348CEF005186E7 /* WithoutInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithoutInternet.swift; sourceTree = "<group>"; };
 		A60FC021262F6CEB0015A34F /* TestMobileiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMobileiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60FC024262F6CEB0015A34F /* TestMobileiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMobileiOSApp.swift; sourceTree = "<group>"; };
 		A60FC026262F6CEB0015A34F /* ApolloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloView.swift; sourceTree = "<group>"; };
@@ -142,6 +158,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A600F68E2633C78E005186E7 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				A600F6902633C78E005186E7 /* Nunito-Regular.ttf */,
+				A600F6912633C78E005186E7 /* Nunito-SemiBold.ttf */,
+				A600F6922633C78E005186E7 /* Nunito-Bold.ttf */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
+		A600F6C826346ACA005186E7 /* Apollo */ = {
+			isa = PBXGroup;
+			children = (
+				A600F6C926346B24005186E7 /* ApolloViewModelTest.swift */,
+			);
+			path = Apollo;
+			sourceTree = "<group>";
+		};
+		A600F6D126346CE1005186E7 /* mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A600F6D226346D35005186E7 /* ApolloUseCaseMock.swift */,
+			);
+			path = mocks;
+			sourceTree = "<group>";
+		};
 		A60FC018262F6CEB0015A34F = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +213,7 @@
 				A60FC07B262F9C8E0015A34F /* data */,
 				A60FC07A262F9C770015A34F /* domain */,
 				A60FC055262F733B0015A34F /* ui */,
+				A600F68E2633C78E005186E7 /* font */,
 				A60FC024262F6CEB0015A34F /* TestMobileiOSApp.swift */,
 				A60FC026262F6CEB0015A34F /* ApolloView.swift */,
 				A60FC028262F6CEE0015A34F /* Assets.xcassets */,
@@ -191,8 +234,11 @@
 		A60FC035262F6CEE0015A34F /* TestMobileiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				A600F6D126346CE1005186E7 /* mocks */,
+				A600F6C826346ACA005186E7 /* Apollo */,
 				A60FC036262F6CEE0015A34F /* TestMobileiOSTests.swift */,
 				A60FC038262F6CEE0015A34F /* Info.plist */,
+				A600F6F326347E44005186E7 /* UtilTest.swift */,
 			);
 			path = TestMobileiOSTests;
 			sourceTree = "<group>";
@@ -214,6 +260,8 @@
 				A60FC075262F98DF0015A34F /* ApolloDetailView.swift */,
 				A60FC056262F74330015A34F /* ItemApolloView.swift */,
 				A60FC0D22631116A0015A34F /* SearchBarView.swift */,
+				A600F6AB2633E148005186E7 /* LoadingView.swift */,
+				A600F6FB26348CEF005186E7 /* WithoutInternet.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -423,7 +471,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A60FC02C262F6CEE0015A34F /* Preview Assets.xcassets in Resources */,
+				A600F6942633C78E005186E7 /* Nunito-Regular.ttf in Resources */,
 				A60FC029262F6CEE0015A34F /* Assets.xcassets in Resources */,
+				A600F6962633C78E005186E7 /* Nunito-Bold.ttf in Resources */,
+				A600F6952633C78E005186E7 /* Nunito-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,9 +615,11 @@
 				A60FC0D32631116B0015A34F /* SearchBarView.swift in Sources */,
 				A60FC0A5262FE26D0015A34F /* ApolloViewModel.swift in Sources */,
 				A60FC0D926314BE80015A34F /* ApolloDetailViewModel.swift in Sources */,
+				A600F6AC2633E148005186E7 /* LoadingView.swift in Sources */,
 				A60FC0F5263263A00015A34F /* ApolloDetailAssembly.swift in Sources */,
 				A60FC088262FB2880015A34F /* EndPoints.swift in Sources */,
 				A60FC025262F6CEB0015A34F /* TestMobileiOSApp.swift in Sources */,
+				A600F6FC26348CEF005186E7 /* WithoutInternet.swift in Sources */,
 				A60FC0E1263150B30015A34F /* LocalStorage.swift in Sources */,
 				A60FC0C726306D380015A34F /* MainAssembly.swift in Sources */,
 			);
@@ -577,6 +630,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A60FC037262F6CEE0015A34F /* TestMobileiOSTests.swift in Sources */,
+				A600F6CA26346B24005186E7 /* ApolloViewModelTest.swift in Sources */,
+				A600F6D326346D35005186E7 /* ApolloUseCaseMock.swift in Sources */,
+				A600F6F426347E44005186E7 /* UtilTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

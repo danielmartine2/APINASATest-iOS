@@ -18,10 +18,37 @@ struct ItemApolloView: View {
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0){
-            ZStack(alignment: .top){
-                NavigationLink(destination: ApolloDetailView(itemData: itemData, actionButton: {
-                    self.apolloViewModel.saveIsFavourite(item: itemData, arrayData: self.apolloViewModel.apolloData)
-                })){
+            
+            VStack(alignment: .leading,spacing:0){
+                
+                HStack(spacing: 0){
+                    Image("nasa")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width:60, height:60)
+                    
+                    
+                    Text("NASA")
+                        .font(.custom("Nunito-Bold", size: 16))
+                        .foregroundColor(Color(UIColor(named: "textColor") ?? .black))
+                        .padding(.trailing, 5)
+                    
+                    Image(systemName: "checkmark.seal.fill")
+                        .foregroundColor(.blue)
+                        .imageScale(.medium)
+                    
+                }
+                
+                Text(itemData.data[0].title)
+                    .font(.custom("Nunito-Regular", size: 16))
+                    .foregroundColor(Color(UIColor(named: "textColor") ?? .black))
+                    .padding([.leading, .bottom, .trailing],10)
+            }
+            
+            NavigationLink(destination: ApolloDetailView(itemData: itemData, actionButton: {
+                self.apolloViewModel.saveIsFavourite(item: itemData, arrayData: self.apolloViewModel.apolloData)
+            })){
+                
                 WebImage(url: URL(string: getUrlImage(itemData.links)))
                     .onSuccess { image, data, cacheType in
                         // Success
@@ -34,25 +61,25 @@ struct ItemApolloView: View {
                     .transition(.fade(duration: 0.5))
                     .scaledToFit()
                     .frame(maxWidth: .infinity, alignment: .center)
-                }
-                HStack{
-                    Spacer()
-                    Button(action: actionFavourite, label: {
-                        
-                        Image(systemName: itemData.favourite == true ? "star.fill" : "star")
-                            .font(.title)
-                            .foregroundColor(itemData.favourite == true ? .yellow : .white)
-                            .padding(10)
-                        
-                    }).background(Color.gray.opacity(0.5))
-                    .clipShape(Circle())
-                    .padding(10)
-                }
             }
             
-            Text(itemData.data[0].title).padding(.all, 10)
+            HStack{
+                Spacer()
+                Button(action: actionFavourite, label: {
+                    
+                    Image(systemName: itemData.favourite == true ? "star.fill" : "star")
+                        .foregroundColor(itemData.favourite == true ? .yellow : Color(UIColor(named: "textColor") ?? .black))
+                    
+                    Text("Favorito")
+                        .font(.custom("Nunito-Regular", size: 16))
+                        .foregroundColor(Color(UIColor(named: "textColor") ?? .black))
+                    
+                }).padding(10)
+                Spacer()
+            }
             
-        }.background(Color.gray.opacity(0.5))
+        }.background(Color(.systemGray6))
+        .padding(.vertical, 2)
     }
     
     private func getUrlImage(_ links: [linkImage]?) -> String{

@@ -15,7 +15,7 @@ struct ApolloView: View {
     @Environment(\.scenePhase) var scenePhase
     
     @State private var searchText: String = ""
-
+    
     @State private var isFavorite: Bool = false
     
     var body: some View {
@@ -25,26 +25,40 @@ struct ApolloView: View {
             ZStack{
                 
                 
-                VStack {
+                VStack(alignment: .center,spacing:0) {
+                    Divider()
+                    SearchBarView(text: $searchText)
+                    Divider()
                     
-                    SearchBarView(text: $searchText).padding()
-                    
-                    ScrollView{
-                        ForEach(self.apolloViewModel.apolloData.filter({ searchText.isEmpty ? true : self.apolloViewModel.filterByKeywords(item: $0, searchText: searchText) }), id: \.id){ item in
-                            
-                            
-                                ItemApolloView(itemData: item, actionFavourite: {
-                                    self.apolloViewModel.saveIsFavourite(item: item, arrayData: self.apolloViewModel.apolloData)
-                                })
-                          
+                    if self.apolloViewModel.isLoading {
+                        
+                        LoadingView()
+                        
+                    }else{
+                        
+                        if self.apolloViewModel.withoutNetwork {
+                            WithoutInternet(action: {
+                                self.apolloViewModel.getApollo()
+                            })
+                        }else{
+                            ScrollView{
+                                ForEach(self.apolloViewModel.apolloData.filter({ searchText.isEmpty ? true : self.apolloViewModel.filterByKeywords(item: $0, searchText: searchText) }), id: \.id){ item in
+                                    
+                                    
+                                    ItemApolloView(itemData: item, actionFavourite: {
+                                        self.apolloViewModel.saveIsFavourite(item: item, arrayData: self.apolloViewModel.apolloData)
+                                    })
+                                    
+                                }
+                            }
                         }
                     }
                     
                 }
                 
-            }
+            }.background(Color(UIColor(named: "background") ?? .black))
             
-            .navigationBarTitle("NASA Api", displayMode: .inline)
+            .navigationBarTitle("NASA API", displayMode: .inline)
             .buttonStyle(PlainButtonStyle())
         }
         .navigationViewStyle(StackNavigationViewStyle())

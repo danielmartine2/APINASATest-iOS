@@ -14,13 +14,13 @@ struct SearchBarView: View {
     @State private var isEditing = false
     
     var body: some View {
-        HStack {
+        HStack(spacing:0) {
             
             TextField("Buscar ...", text: $text)
+                .font(.custom("Nunito-Regular", size: 16))
                 .padding(7)
                 .padding(.horizontal, 25)
                 .background(Color(.systemGray6))
-                .cornerRadius(8)
                 .overlay(
                     HStack {
                         Image(systemName: "magnifyingglass")
@@ -39,7 +39,6 @@ struct SearchBarView: View {
                         }
                     }
                 )
-                .padding(.horizontal, 10)
                 .onTapGesture {
                     self.isEditing = true
                 }
@@ -51,8 +50,9 @@ struct SearchBarView: View {
                     
                 }) {
                     Text("Cancel")
+                        .font(.custom("Nunito-Regular", size: 16))
                 }
-                .padding(.trailing, 10)
+                .padding(.horizontal, 10)
                 .transition(.move(edge: .trailing))
                 .animation(.default)
             }
