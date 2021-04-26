@@ -46,10 +46,14 @@ class ApolloViewModel: ObservableObject {
     
     func filterByKeywords(item: ItemCollection, searchText: String) -> Bool {
         let keywords = item.data[0].keywords
+        var isConstain = false
         for keyword in keywords {
-            return keyword.uppercased().replacingOccurrences(of: " ", with: "").contains(searchText.uppercased().replacingOccurrences(of: " ", with: ""))
+            if keyword.uppercased().replacingOccurrences(of: " ", with: "").contains(searchText.uppercased().replacingOccurrences(of: " ", with: "")){
+                isConstain = true
+                break
+            }
         }
-        return false
+        return isConstain
     }
     
     func saveIsFavourite(item: ItemCollection, arrayData: [ItemCollection]) {
